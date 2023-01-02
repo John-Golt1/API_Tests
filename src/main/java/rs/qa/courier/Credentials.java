@@ -3,13 +3,16 @@ package rs.qa.courier;
 public class Credentials {
     private String login;
     private String password;
-    private String firstName;
+
     public Credentials() {}
 
-    public Credentials(String login, String password, String firstName) {
+    public Credentials(String login, String password) {
         this.login = login;
         this.password = password;
-        this.firstName = firstName;
+
+    }
+    public static Credentials from(Courier courier) {
+        return new Credentials(courier.getLogin(), courier.getPassword());
     }
 
     public String getLogin() {
@@ -28,11 +31,4 @@ public class Credentials {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 }
